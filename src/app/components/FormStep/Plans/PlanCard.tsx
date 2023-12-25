@@ -6,6 +6,7 @@ import { PlanWithPrices } from "../../../types/plan";
 import { useForm } from "../../../hooks/use-form";
 import { priceFormatter } from "../../../utils/price-formatter";
 
+import UnconventionalTabs from "./UnconventionalTabs";
 interface PlanCard {
   plan: PlanWithPrices;
   icon: string;
@@ -16,12 +17,15 @@ interface PlanCard {
 
 export function PlanCard({ plan, icon, isSelected, handleSelectPlan, freeTrialDescription }: PlanCard) {
   const { isCoupon } = useForm()
-  const [liked, setLiked] = React.useState(false);
-
-
   const planType = isCoupon ? 'coupon' : 'noCoupon';
 
+  
+
   return (
+
+    <div>
+     
+    
     <button
       className={`
         flex gap-4 justify-start items-center w-full rounded border-[1px] border-border-grey bg-white p-4 transition duration-200
@@ -53,5 +57,6 @@ export function PlanCard({ plan, icon, isSelected, handleSelectPlan, freeTrialDe
         )}
       </div>
     </button>
+    </div>
   )
 }

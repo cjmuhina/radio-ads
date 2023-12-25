@@ -12,6 +12,10 @@ import { Switch } from "./Switch";
 
 import plans from '../../../../data/plans.json'
 import { FromToCard } from "./FromToCard";
+import UnconventionalTabs from "./UnconventionalTabs";
+
+import Tab0Image3 from '../../../../../public/images/icons/icon-advanced.svg'
+
 
 export function Plans() {
   const {
@@ -49,6 +53,33 @@ export function Plans() {
     setIsCoupon(!isCoupon);
   }
 
+
+  const tabs = [
+    {
+      title: 'Lassen Peak',
+      img: {Tab0Image3},
+      tag: 'Mountain',
+      excerpt: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+      link: '#0'
+    },
+    {
+      title: 'Mount Shasta',
+      img: {Tab0Image3},
+      tag: 'Mountain',
+      excerpt: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+      link: '#0'
+    },
+    {
+      title: 'Eureka Peak',
+      img: {Tab0Image3},
+      tag: 'Mountain',
+      excerpt: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+      link: '#0'
+    },
+  ]
+
+
+
   return (
     <Fragment>
       <Form.Card>
@@ -58,6 +89,10 @@ export function Plans() {
         />
 
         <FromToCard/>
+
+        <div className="w-full max-w-6xl mx-auto px-4 md:px-6 py-24">
+          <UnconventionalTabs tabs={tabs} />
+        </div>
 
         <div className="mt-5 flex flex-col gap-3 sm:flex-row">
           {plans.map(plan => (
