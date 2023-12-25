@@ -9,8 +9,8 @@ interface AddOnOptionProps {
     title: string;
     description: string;
     price: {
-      monthly: number;
-      yearly: number;
+      noCoupon: number;
+      coupon: number;
     }
   }
   isSelected: boolean
@@ -19,9 +19,9 @@ interface AddOnOptionProps {
 }
 
 export function AddOnOption({ addOn, isSelected, handleSelectAddon, handleUnselectedAddon }: AddOnOptionProps) {
-  const { isYearly } = useForm()
+  const { isCoupon } = useForm()
 
-  const planType = isYearly ? 'yearly' : 'monthly'
+  const planType = isCoupon ? 'coupon' : 'noCoupon'
 
   function handleClick() {
     if (isSelected) {
@@ -61,7 +61,7 @@ export function AddOnOption({ addOn, isSelected, handleSelectAddon, handleUnsele
         <span className="text-xs text-grey font-normal sm:text-sm">{addOn.description}</span>
       </div>
       <span className="text-xs text-purple font-normal leading-5 ml-auto sm:text-sm ">
-        {"+" + priceFormatter(addOn.price[planType], isYearly)}
+        {"+" + priceFormatter(addOn.price[planType], isCoupon)}
       </span>
     </button>
   )

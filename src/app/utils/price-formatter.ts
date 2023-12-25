@@ -1,3 +1,3 @@
-export function priceFormatter(price: number, isYearly: boolean): string {
-    return isYearly ? `$${price}/yr` : `$${(price)}/mo`;
+export function priceFormatter(price: number, isCoupon: boolean): string {
+    return isCoupon ? ` TZS ${price}/ with Discount` : `$${(price)}/ No Discount`;
   }

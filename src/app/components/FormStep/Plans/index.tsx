@@ -11,16 +11,17 @@ import { TypeOfPlan, PlanWithPrices } from "../../../types/plan";
 import { Switch } from "./Switch";
 
 import plans from '../../../../data/plans.json'
+import { FromToCard } from "./FromToCard";
 
 export function Plans() {
   const {
     selectedPlan,
     setSelectedPlan,
-    isYearly,
-    setIsYearly
+    isCoupon,
+    setIsCoupon
   } = useForm()
 
-  const typeOfPlan: TypeOfPlan = isYearly ? 'yearly' : 'monthly';
+  const typeOfPlan: TypeOfPlan = isCoupon ? 'coupon' : 'noCoupon';
 
   const { handleNextStep, handlePreviousStep } = useFormStep()
 
@@ -31,7 +32,7 @@ export function Plans() {
     saveValueToLocalStorage('plan', JSON.stringify({
       name: selectedPlan,
       price: plans.find(plan => plan.name === selectedPlan.name)?.price[typeOfPlan],
-      isYearly
+      isCoupon
     }))
     handleNextStep()
   }
@@ -45,7 +46,7 @@ export function Plans() {
 
 
   function handlePlanTypeChange() {
-    setIsYearly(!isYearly);
+    setIsCoupon(!isCoupon);
   }
 
   return (
@@ -53,8 +54,10 @@ export function Plans() {
       <Form.Card>
         <Form.Header
           title="Select your plan"
-          description="You have the option of monthly or yearly billing."
+          description="You have the option With coupon or no coupon billing."
         />
+
+        <FromToCard/>
 
         <div className="mt-5 flex flex-col gap-3 sm:flex-row">
           {plans.map(plan => (
@@ -72,7 +75,7 @@ export function Plans() {
         <div className="flex justify-center items-center gap-6 py-4 bg-very-light-grey mt-6 rounded-lg sm:mt-8">
           <Switch
             handlePlanTypeChange={handlePlanTypeChange}
-            isYearly={isYearly}
+            isCoupon={isCoupon}
           />
         </div>
       </Form.Card>

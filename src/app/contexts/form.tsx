@@ -22,8 +22,8 @@ type FormContextData = {
   dispatchPhoneNumberField: React.Dispatch<any>;
   companyNameField: Field;
   dispatchCompanyNameField: React.Dispatch<any>;
-  isYearly: boolean;
-  setIsYearly: React.Dispatch<React.SetStateAction<boolean>>;
+  isCoupon: boolean;
+  setIsCoupon: React.Dispatch<React.SetStateAction<boolean>>;
   selectedPlan: Plan;
   setSelectedPlan: React.Dispatch<React.SetStateAction<Plan>>;
   addOns: { title: string, description: string, price: number }[];
@@ -40,8 +40,8 @@ export const FormContext = createContext({
   dispatchPhoneNumberField: () => {},
   companyNameField: initialState,
   dispatchCompanyNameField: () => {},
-  isYearly: false,
-  setIsYearly: () => {},
+  isCoupon: false,
+  setIsCoupon: () => {},
   selectedPlan: null as any,
   setSelectedPlan: () => {},
   addOns: [],
@@ -101,7 +101,7 @@ export const FormProvider = ({ children }: FormProviderProps) => {
   const [companyNameField, dispatchCompanyNameField] = useReducer(handleFormState, initialState)
 
   // Plan
-  const [isYearly, setIsYearly] = useState<boolean>(false);
+  const [isCoupon, setIsCoupon] = useState<boolean>(false);
   const [selectedPlan, setSelectedPlan] = useState<Plan>(null as any);
 
   // Add Ons
@@ -118,7 +118,7 @@ export const FormProvider = ({ children }: FormProviderProps) => {
     dispatchEmailField({ type: ACTIONS.SET_VALUE, value: '' })
     dispatchPhoneNumberField({ type: ACTIONS.SET_VALUE, value: '' })
     dispatchCompanyNameField({ type: ACTIONS.SET_VALUE, value: '' })
-    setIsYearly(false)
+    setIsCoupon(false)
     setSelectedPlan(null as any)
     setAddOns([])
   }
@@ -136,7 +136,7 @@ export const FormProvider = ({ children }: FormProviderProps) => {
     const planFromLocalStorage = getValueFromLocalStorage('plan')
     if (planFromLocalStorage) {
       setSelectedPlan(planFromLocalStorage.name)
-      setIsYearly(planFromLocalStorage.isYearly)
+      setIsCoupon(planFromLocalStorage.isCoupon)
     }
 
     const addOnsFromLocalStorage = getValueFromLocalStorage('add-ons')
@@ -154,8 +154,8 @@ export const FormProvider = ({ children }: FormProviderProps) => {
     dispatchPhoneNumberField,
     companyNameField,
     dispatchCompanyNameField,
-    isYearly,
-    setIsYearly,
+    isCoupon,
+    setIsCoupon,
     selectedPlan,
     setSelectedPlan,
     addOns,

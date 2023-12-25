@@ -33,6 +33,12 @@ export function FormStep() {
 
   return (
     <div className="flex flex-col flex-1 justify-between">
+        <div className="pb-20 	">
+            <h1 className="uppercase text-center font-extrabold text-transparent text-lg	 bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-600">
+              Date Range Picker
+            </h1>
+          </div>
+
       {step && step.component()}
     </div>
   )

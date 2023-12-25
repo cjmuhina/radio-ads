@@ -1,27 +1,33 @@
 [
     {
-      "name": "Arcade",
+      "radio": "EFM Radio",
+      "name": "Leo Tena",
+      "date": "02/01/2024",
       "price": {
-        "monthly": 9,
-        "yearly": 90
+        "coupon": 100000,
+        "noCoupon": 130000
       },
       "icon": "/images/icons/icon-arcade.svg",
       "freeTrialDescription": "2 months free"
     },
     {
-      "name": "Advanced",
+      "radio": "Clouds Radio",
+      "name": "Sports Extra",
+      "date": "02/01/2024",
       "price": {
-        "monthly": 12,
-        "yearly": 120
+        "coupon": 100000,
+        "noCoupon": 130000
       },
       "icon": "/images/icons/icon-advanced.svg",
       "freeTrialDescription": "2 months free"
     },
     {
-      "name": "Pro",
+      "radio": "EFM Radio",
+      "name": "Clouds Habari",
+      "date": "02/01/2024",
       "price": {
-        "monthly": 15,
-        "yearly": 150
+        "coupon": 100000,
+        "noCoupon": 130000
       },
       "icon": "/images/icons/icon-pro.svg",
       "freeTrialDescription": "2 months free"

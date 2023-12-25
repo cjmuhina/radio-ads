@@ -1,9 +1,10 @@
-export type TypeOfPlan = 'monthly' | 'yearly';
+export type TypeOfPlan = 'coupon' | 'noCoupon';
 
 export type PlanWithPrices = {
+  radio: string;
   name: string;
   price: {
-    monthly: number;
-    yearly: number;
+    coupon: number;
+    noCoupon: number;
   }
 }

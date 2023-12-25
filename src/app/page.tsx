@@ -18,9 +18,12 @@ export default function Home() {
         }>
           <Sidebar />
 
+         
+
           
          
           <div className="flex flex-1 sm:max-w-[550px] sm:flex-0 sm:mx-auto">
+          
             
             <FormStep />
           </div>

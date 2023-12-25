@@ -1,4 +1,5 @@
 import Image from "next/image";
+import React from "react";
 
 import { PlanWithPrices } from "../../../types/plan";
 
@@ -14,9 +15,11 @@ interface PlanCard {
 }
 
 export function PlanCard({ plan, icon, isSelected, handleSelectPlan, freeTrialDescription }: PlanCard) {
-  const { isYearly } = useForm()
+  const { isCoupon } = useForm()
+  const [liked, setLiked] = React.useState(false);
 
-  const planType = isYearly ? 'yearly' : 'monthly';
+
+  const planType = isCoupon ? 'coupon' : 'noCoupon';
 
   return (
     <button
@@ -26,7 +29,7 @@ export function PlanCard({ plan, icon, isSelected, handleSelectPlan, freeTrialDe
         ${isSelected ? 'border-purple bg-very-light-grey' : ''}
         sm:flex-col sm:gap-0 sm:justify-between sm:items-start sm:h-[181px]
       `}
-      onClick={() => handleSelectPlan({ name: plan.name, price: plan.price })}
+      onClick={() => handleSelectPlan({ name: plan.name, radio: plan.name, price: plan.price })}
     >
       <Image
         src={icon}
@@ -40,10 +43,10 @@ export function PlanCard({ plan, icon, isSelected, handleSelectPlan, freeTrialDe
         </strong>
 
         <span className="text-sm font-normal text-grey leading-5">
-          {priceFormatter(plan.price[planType], isYearly)}
+          {priceFormatter(plan.price[planType], isCoupon)}
         </span>
 
-        {(isYearly && freeTrialDescription) && (
+        {(isCoupon && freeTrialDescription) && (
           <span className="hidden text-xs font-normal text-denim sm:block">
             {freeTrialDescription}
           </span>
