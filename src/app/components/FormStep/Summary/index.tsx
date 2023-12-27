@@ -17,7 +17,7 @@ export function Summary() {
 
   const { handlePreviousStep, moveToStep } = useFormStep()
 
-  const { addOns, selectedPlan, isYearly, clearForm } = useForm()
+  const { addOns, selectedPlan, isCoupon, clearForm } = useForm()
 
   function handleGoForwardStep() {
     setSubmitted(true)
@@ -33,7 +33,7 @@ export function Summary() {
 
       setTimeout(() => {
         moveToStep(1)
-      }, 4000)
+      }, 10000)
     }
   }, [submitted, moveToStep])
 
@@ -51,26 +51,39 @@ export function Summary() {
       <Form.Card>
         <Form.Header
           title="Finishing up"
-          description="Double-check everything looks OK before confirming."
+          description="Double-check everything if looks OK before confirming."
         />
 
         <div className="mt-5 flex flex-col gap-3 bg-very-light-grey rounded-lg p-4 sm:px-6">
           <div className="flex items-center justify-between">
             <div className="flex flex-col gap-1 items-start">
+
+              
               <strong className="text-sm font-medium text-denim sm:text-base">
-                {`${selectedPlan.name} (${isYearly ? 'Yearly' : 'Monthly'})`}
+                {`${selectedPlan.name}`}
+
+{
+                  /**(${isCoupon ? 'Yearly' : 'Monthly'}) */
+                }
               </strong>
-              <button
-                className="text-sm leading-5 font-normal text-grey underline cursor-pointer hover:text-purple duration-200"
-                onClick={handleChangePlan}
-              >
-                Change
-              </button>
+             
             </div>
 
-            <span className="text-sm leading-5 font-bold text-denim sm:text-base">
-              {priceFormatter(selectedPlan.price, isYearly)}
-            </span>
+                {
+                  /**
+                   <span className="text-sm leading-5 font-bold text-denim sm:text-base">
+                    {priceFormatter(selectedPlan.price, isCoupon)}
+                  </span>
+                   */
+                }
+                <span className="text-sm leading-5 font-bold text-denim sm:text-base">
+                <button
+                                className="text-sm leading-5 font-normal text-grey underline cursor-pointer hover:text-purple duration-200 focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900"
+                                onClick={handleChangePlan}
+                              >
+                                Change
+                              </button>
+              </span>
           </div>
 
           {addOns.length > 0 && (
@@ -82,15 +95,18 @@ export function Summary() {
               key={index}
               title={addOn.title}
               price={addOn.price}
-              isYearly={isYearly}
+              isCoupon={isCoupon}
             />
           ))}
         </div>
 
         <TotalPrice
           finalPrice={finalPrice}
-          isYearly={isYearly}
+          isCoupon={isCoupon}
         />
+
+             
+
       </Form.Card>
       <Footer
         handleGoForwardStep={handleGoForwardStep}

@@ -18,8 +18,7 @@ export function PostConfirmation() {
           </strong>
 
           <p className="mt-2 text-base text-grey font-normal leading-6 tracking-[0.5px] text-center">
-            Thanks for confirming your subscription! We hope you have fun using our platform.
-            If you ever need support, please feel free to email us at support@multistepform.com.
+            Thanks for submitting your application! We will let you know as soon as possble
           </p>
         </div>
       </Form.Card>

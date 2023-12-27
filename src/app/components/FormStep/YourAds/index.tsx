@@ -63,6 +63,7 @@ export function YourAds() {
             errorMessage={adsDescField.errorMessage}
             clearError={() => dispatchAdsDescField({ type: ACTIONS.CLEAR_ERROR })}
             hasError={adsDescField.hasError}
+            nameOfClasses = ' min-h-[200px]'
           />
         </div>
       </Form.Card>

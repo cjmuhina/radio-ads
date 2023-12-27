@@ -4,8 +4,8 @@
       "name": "TIGOPESA",
       "date": "02/01/2024",
       "price": {
-        "coupon": 100000,
-        "noCoupon": 130000
+        "coupon": 0,
+        "noCoupon": 0
       },
       "icon": "/images/pesa/tigo.png",
       "freeTrialDescription": "Pay with TigoPesa"
@@ -15,8 +15,8 @@
       "name": "M-PESA",
       "date": "02/01/2024",
       "price": {
-        "coupon": 100000,
-        "noCoupon": 130000
+        "coupon": 0,
+        "noCoupon": 0
       },
       "icon": "/images/pesa/mpesa.png",
       "freeTrialDescription": "Pay with M-Pesa"
@@ -26,8 +26,8 @@
       "name": "HALOPESA",
       "date": "02/01/2024",
       "price": {
-        "coupon": 100000,
-        "noCoupon": 130000
+        "coupon": 0,
+        "noCoupon": 0
       },
       "icon": "/images/pesa/halopesa.png",
       "freeTrialDescription": "Pay with HaloPesa"

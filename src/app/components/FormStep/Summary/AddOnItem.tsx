@@ -3,11 +3,11 @@ import { priceFormatter } from "../../../utils/price-formatter";
 interface AddOnItemProps {
   title: string;
   price: number;
-  isYearly: boolean;
+  isCoupon: boolean;
 }
 
-export function AddOnItem({ title, price, isYearly }: AddOnItemProps) {
-  const formattedPrice = priceFormatter(price, isYearly)
+export function AddOnItem({ title, price, isCoupon }: AddOnItemProps) {
+  const formattedPrice = priceFormatter(price, isCoupon)
 
   return (
     <div className="flex items-center justify-between">

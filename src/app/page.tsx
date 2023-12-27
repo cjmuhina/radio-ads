@@ -26,6 +26,7 @@ export default function Home() {
         <main className={`
           flex flex-col h-screen m-0
           sm:flex-row sm:m-4 sm:mr-0 sm:h-[calc(100vh-32px)]
+          pt-6 mt-6
           `
         }>
           <Sidebar />
@@ -47,7 +48,7 @@ export default function Home() {
       </FormProvider>
     </FormStepProvider>
     </div>
-    
+
     </div>
   )
 }

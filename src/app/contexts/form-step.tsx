@@ -25,9 +25,10 @@ export const FormStepProvider = ({ children }: FormStepProviderProps) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [steps, _] = useState([
     { title: 'Your info', number: 1 },
-    { title: 'Radio Ads List', number: 2 },
-    { title: 'Payment options', number: 3 },
-    { title: 'Summary', number: 4 },
+    { title: 'Radio Timetable', number: 2 },
+    { title: 'Ads Description', number: 3 },
+    { title: 'Payment options', number: 4 },
+    { title: 'Summary', number: 5 },
   ])
 
   const { getValueFromLocalStorage, saveValueToLocalStorage } = useLocalStorage()
