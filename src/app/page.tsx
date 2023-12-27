@@ -12,8 +12,8 @@ export default function Home() {
     <div
       className="
       
-       w-full bg-no-repeat bg-cover bg-[url('/images/bg/red-black-brush-stroke-banner-background-perfect-canva-mobile.jpg')] 
-       sm:bg-[url('/images/bg/red-black-brush-stroke-banner-background-perfect-canva.jpg')] 
+       w-full bg-no-repeat bg-cover bg-[url('/images/bg/mobile.jpg')] 
+       sm:bg-[url('/images/bg/desktop.jpg')] 
        "
     >
 
