@@ -10,10 +10,11 @@ import Form from "../../Form";
 import { AddonWithPrices, Addon } from "../../../types/add-ons";
 
 import ADD_ONS from '../../../../data/add-ons.json'
+import { FromToCard } from "../Plans/FromToCard";
 
 export function AddOns() {
 
-  const { addOns, setAddOns, isYearly } = useForm()
+  const { addOns, setAddOns, isCoupon } = useForm()
 
   const { handleNextStep, handlePreviousStep } = useFormStep()
 
@@ -23,7 +24,7 @@ export function AddOns() {
     const formattedAddOn = {
       title: addOn.title,
       description: addOn.description,
-      price: addOn.price[isYearly ? 'yearly' : 'monthly']
+      price: addOn.price[isCoupon ? 'coupon' : 'noCoupon']
     }
     setAddOns((currentAddons) => [...currentAddons, formattedAddOn])
   }
@@ -46,6 +47,8 @@ export function AddOns() {
         />
 
         <div className="mt-5 flex flex-col gap-3">
+
+          <FromToCard/>
           {ADD_ONS.map((addOn, index) => (
             <AddOnOption
               key={index}

@@ -54,45 +54,24 @@ export function Plans() {
   }
 
 
-  const tabs = [
-    {
-      title: 'Lassen Peak',
-      img: {Tab0Image3},
-      tag: 'Mountain',
-      excerpt: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-      link: '#0'
-    },
-    {
-      title: 'Mount Shasta',
-      img: {Tab0Image3},
-      tag: 'Mountain',
-      excerpt: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-      link: '#0'
-    },
-    {
-      title: 'Eureka Peak',
-      img: {Tab0Image3},
-      tag: 'Mountain',
-      excerpt: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-      link: '#0'
-    },
-  ]
-
-
-
   return (
     <Fragment>
       <Form.Card>
         <Form.Header
-          title="Select your plan"
-          description="You have the option With coupon or no coupon billing."
+          title="Payment option"
+          description="Select your payment provider."
         />
 
-        <FromToCard/>
-
-        <div className="w-full max-w-6xl mx-auto px-4 md:px-6 py-24">
+      
+{
+  /**
+   *   <FromToCard/>
+    <div className="w-full max-w-6xl mx-auto px-4 md:px-6 py-24">
           <UnconventionalTabs tabs={tabs} />
         </div>
+   */
+}
+       
 
         <div className="mt-5 flex flex-col gap-3 sm:flex-row">
           {plans.map(plan => (
@@ -107,12 +86,21 @@ export function Plans() {
           ))}
         </div>
 
+        {
+          /**
+           
+          
+
         <div className="flex justify-center items-center gap-6 py-4 bg-very-light-grey mt-6 rounded-lg sm:mt-8">
           <Switch
             handlePlanTypeChange={handlePlanTypeChange}
             isCoupon={isCoupon}
           />
         </div>
+
+         * 
+           */
+      }
       </Form.Card>
       <Footer
         handleGoForwardStep={handleGoForwardStep}

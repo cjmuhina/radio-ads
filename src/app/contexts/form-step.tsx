@@ -25,8 +25,8 @@ export const FormStepProvider = ({ children }: FormStepProviderProps) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [steps, _] = useState([
     { title: 'Your info', number: 1 },
-    { title: 'Select plan', number: 2 },
-    { title: 'ADD-ONS', number: 3 },
+    { title: 'Radio Ads List', number: 2 },
+    { title: 'Payment options', number: 3 },
     { title: 'Summary', number: 4 },
   ])
 

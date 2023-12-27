@@ -1,35 +1,35 @@
 [
     {
-      "radio": "EFM Radio",
-      "name": "Leo Tena",
+      "radio": "TIGOPESA",
+      "name": "TIGOPESA",
       "date": "02/01/2024",
       "price": {
         "coupon": 100000,
         "noCoupon": 130000
       },
-      "icon": "/images/icons/icon-arcade.svg",
-      "freeTrialDescription": "2 months free"
+      "icon": "/images/pesa/tigo.png",
+      "freeTrialDescription": "Pay with TigoPesa"
     },
     {
-      "radio": "Clouds Radio",
-      "name": "Sports Extra",
+      "radio": "M-PESA",
+      "name": "M-PESA",
       "date": "02/01/2024",
       "price": {
         "coupon": 100000,
         "noCoupon": 130000
       },
-      "icon": "/images/icons/icon-advanced.svg",
-      "freeTrialDescription": "2 months free"
+      "icon": "/images/pesa/mpesa.png",
+      "freeTrialDescription": "Pay with M-Pesa"
     },
     {
-      "radio": "EFM Radio",
-      "name": "Clouds Habari",
+      "radio": "HALOPESA",
+      "name": "HALOPESA",
       "date": "02/01/2024",
       "price": {
         "coupon": 100000,
         "noCoupon": 130000
       },
-      "icon": "/images/icons/icon-pro.svg",
-      "freeTrialDescription": "2 months free"
+      "icon": "/images/pesa/halopesa.png",
+      "freeTrialDescription": "Pay with HaloPesa"
     }
   ]

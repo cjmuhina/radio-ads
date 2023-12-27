@@ -7,6 +7,7 @@ import { useForm } from "../../../hooks/use-form";
 import { priceFormatter } from "../../../utils/price-formatter";
 
 import UnconventionalTabs from "./UnconventionalTabs";
+
 interface PlanCard {
   plan: PlanWithPrices;
   icon: string;
@@ -38,18 +39,23 @@ export function PlanCard({ plan, icon, isSelected, handleSelectPlan, freeTrialDe
       <Image
         src={icon}
         alt="Plan icon"
-        width={40}
-        height={40}
+        width={100}
+        height={100}
       />
-      <div className="flex flex-col gap-1 items-start">
+      <div className="flex flex-col gap-1 items-center">
         <strong className="text-base font-medium text-denim">
           {plan.name}
         </strong>
 
+{
+  /**
+   
+   
         <span className="text-sm font-normal text-grey leading-5">
           {priceFormatter(plan.price[planType], isCoupon)}
         </span>
-
+*/
+}
         {(isCoupon && freeTrialDescription) && (
           <span className="hidden text-xs font-normal text-denim sm:block">
             {freeTrialDescription}

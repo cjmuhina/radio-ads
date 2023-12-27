@@ -8,7 +8,7 @@ export type Addon = {
     title: string;
     description: string;
     price: {
-      monthly: number;
-      yearly: number;
+      coupon: number;
+      noCoupon: number;
     }
   }

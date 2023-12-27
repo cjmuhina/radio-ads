@@ -45,6 +45,7 @@ export function AddOnOption({ addOn, isSelected, handleSelectAddon, handleUnsele
         className={
           `
             rounded h-5 w-5 flex items-center justify-center duration-200 hover:bg-purple
+            border border-blue-700	
             ${isSelected ? 'bg-purple' : 'bg-white'}
           `
         }
@@ -61,7 +62,7 @@ export function AddOnOption({ addOn, isSelected, handleSelectAddon, handleUnsele
         <span className="text-xs text-grey font-normal sm:text-sm">{addOn.description}</span>
       </div>
       <span className="text-xs text-purple font-normal leading-5 ml-auto sm:text-sm ">
-        {"+" + priceFormatter(addOn.price[planType], isCoupon)}
+        {"" + priceFormatter(addOn.price[planType], isCoupon)}
       </span>
     </button>
   )

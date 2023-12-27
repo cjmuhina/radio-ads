@@ -9,12 +9,24 @@ import { FormStep } from './components/FormStep'
 
 export default function Home() {
   return (
+    <div
+      className="
+      
+       w-full bg-no-repeat bg-cover bg-[url('/images/bg/red-black-brush-stroke-banner-background-perfect-canva-mobile.jpg')] 
+       sm:bg-[url('/images/bg/red-black-brush-stroke-banner-background-perfect-canva.jpg')] 
+       "
+    >
+
+      <div className='container mx-auto'>
+
+      
     <FormStepProvider>
       <FormProvider>
         
         <main className={`
           flex flex-col h-screen m-0
-          sm:flex-row sm:m-4 sm:mr-0 sm:h-[calc(100vh-32px)]`
+          sm:flex-row sm:m-4 sm:mr-0 sm:h-[calc(100vh-32px)]
+          `
         }>
           <Sidebar />
 
@@ -34,6 +46,9 @@ export default function Home() {
         </main >
       </FormProvider>
     </FormStepProvider>
+    </div>
+    
+    </div>
   )
 }
 

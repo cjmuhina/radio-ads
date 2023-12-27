@@ -22,6 +22,8 @@ type FormContextData = {
   dispatchPhoneNumberField: React.Dispatch<any>;
   companyNameField: Field;
   dispatchCompanyNameField: React.Dispatch<any>;
+  adsDescField: Field;
+  dispatchAdsDescField: React.Dispatch<any>;
   isCoupon: boolean;
   setIsCoupon: React.Dispatch<React.SetStateAction<boolean>>;
   selectedPlan: Plan;
@@ -40,6 +42,9 @@ export const FormContext = createContext({
   dispatchPhoneNumberField: () => {},
   companyNameField: initialState,
   dispatchCompanyNameField: () => {},
+  adsDescField: initialState,
+  dispatchAdsDescField: () => {},
+  
   isCoupon: false,
   setIsCoupon: () => {},
   selectedPlan: null as any,
@@ -104,6 +109,10 @@ export const FormProvider = ({ children }: FormProviderProps) => {
   const [isCoupon, setIsCoupon] = useState<boolean>(false);
   const [selectedPlan, setSelectedPlan] = useState<Plan>(null as any);
 
+  // Description Ads
+  const [adsDescField, dispatchAdsDescField] = useReducer(handleFormState, initialState)
+
+
   // Add Ons
   const [addOns, setAddOns] = useState<{ title: string, description: string, price: number }[]>([]);
 
@@ -111,6 +120,7 @@ export const FormProvider = ({ children }: FormProviderProps) => {
 
   function clearForm() {
     removeValueFromLocalStorage('your-info')
+    removeValueFromLocalStorage('ads-info')
     removeValueFromLocalStorage('plan')
     removeValueFromLocalStorage('add-ons')
 
@@ -118,6 +128,7 @@ export const FormProvider = ({ children }: FormProviderProps) => {
     dispatchEmailField({ type: ACTIONS.SET_VALUE, value: '' })
     dispatchPhoneNumberField({ type: ACTIONS.SET_VALUE, value: '' })
     dispatchCompanyNameField({ type: ACTIONS.SET_VALUE, value: '' })
+    dispatchAdsDescField({ type: ACTIONS.SET_VALUE, value: '' })
     setIsCoupon(false)
     setSelectedPlan(null as any)
     setAddOns([])
@@ -130,7 +141,11 @@ export const FormProvider = ({ children }: FormProviderProps) => {
       dispatchEmailField({ type: ACTIONS.SET_VALUE, value: yourInfoFromLocalStorage.email })
       dispatchPhoneNumberField({ type: ACTIONS.SET_VALUE, value: yourInfoFromLocalStorage.phoneNumber })
       dispatchCompanyNameField({ type: ACTIONS.SET_VALUE, value: yourInfoFromLocalStorage.companyName })
+    }
 
+    const adsInfoFromLocalStorage = getValueFromLocalStorage('ads-info')
+    if (adsInfoFromLocalStorage) {
+      dispatchAdsDescField({ type: ACTIONS.SET_VALUE, value: adsInfoFromLocalStorage.companyName })
     }
 
     const planFromLocalStorage = getValueFromLocalStorage('plan')
@@ -154,6 +169,8 @@ export const FormProvider = ({ children }: FormProviderProps) => {
     dispatchPhoneNumberField,
     companyNameField,
     dispatchCompanyNameField,
+    adsDescField,
+    dispatchAdsDescField,
     isCoupon,
     setIsCoupon,
     selectedPlan,

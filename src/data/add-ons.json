@@ -1,26 +1,26 @@
 [
     {
-      "title": "Online service",
-      "description": "Access to multiplayer games",
+      "title": "Clouds FM",
+      "description": "Leo Tena 00:00 - 05:00",
       "price": {
-        "monthly": 1,
-        "yearly": 10
+        "coupon": 100000,
+        "noCoupon": 110000
       }
     },
     {
-      "title": "Larger storage",
-      "description": "Extra 1TB of cloud save",
+      "title": "EFM Radio",
+      "description": "Sports Extra 00:00 - 05:00",
       "price": {
-        "monthly": 2,
-        "yearly": 20
+        "coupon": 200000,
+        "noCoupon": 120000
       }
     },
     {
-      "title": "Customizable profile",
-      "description": "Custom theme on your profile",
+      "title": "Radio MATATA",
+      "description": "Mechozo 00:00 - 05:00",
       "price": {
-        "monthly": 2,
-        "yearly": 20
+        "coupon": 1200000,
+        "noCoupon": 1200000
       }
     }
   ]

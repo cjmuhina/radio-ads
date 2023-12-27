@@ -14,11 +14,11 @@ const steps = [
   },
   {
     step: 2,
-    component: Plans
+    component: AddOns
   },
   {
     step: 3,
-    component: AddOns
+    component: Plans
   },
   {
     step: 4,
@@ -32,12 +32,20 @@ export function FormStep() {
   const step = steps.find(({ step }) => step === currentStep);
 
   return (
-    <div className="flex flex-col flex-1 justify-between">
-        <div className="pb-20 	">
-            <h1 className="uppercase text-center font-extrabold text-transparent text-lg	 bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-600">
+    <div className="flex flex-col flex-1  justify-between pb-20">
+     
+        
+            
+            {
+        /**
+         * <div className="pb-20 	">
+         <h1 className="uppercase text-center font-extrabold text-transparent text-lg	 bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-600">
               Online Radio Ads
             </h1>
-          </div>
+            </div>
+         */
+      }
+          
 
       {step && step.component()}
     </div>

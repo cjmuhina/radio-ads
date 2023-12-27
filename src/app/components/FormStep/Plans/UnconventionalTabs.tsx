@@ -5,9 +5,7 @@ import Image, { StaticImageData } from 'next/image'
 import { Tab } from '@headlessui/react'
 import { Transition } from '@headlessui/react'
 import { Caveat } from 'next/font/google'
-// import TabImage01 from '@/public/tabs-image-01.jpg'
-// import Tab0Image2 from '@/public/tabs-image-02.jpg'
-// import Tab0Image3 from '@/public/tabs-image-03.jpg'
+
 
 import Tab0Image3 from '../../../../../public/images/icons/icon-advanced.svg'
 
