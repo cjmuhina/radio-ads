@@ -44,7 +44,7 @@ export function Summary() {
   }
 
   const addOnsTotalPrice = addOns.reduce((acc, addOn) => acc + addOn.price, 0)
-  const finalPrice = selectedPlan.price + addOnsTotalPrice
+  const finalPrice = selectedPlan?.price + addOnsTotalPrice
 
   return (
     <Fragment>
@@ -60,7 +60,7 @@ export function Summary() {
 
               
               <strong className="text-sm font-medium text-denim sm:text-base">
-                {`${selectedPlan.name}`}
+                {`${selectedPlan?.name}`}
 
 {
                   /**(${isCoupon ? 'Yearly' : 'Monthly'}) */
@@ -72,7 +72,7 @@ export function Summary() {
                 {
                   /**
                    <span className="text-sm leading-5 font-bold text-denim sm:text-base">
-                    {priceFormatter(selectedPlan.price, isCoupon)}
+                    {priceFormatter(selectedPlan?.price, isCoupon)}
                   </span>
                    */
                 }
