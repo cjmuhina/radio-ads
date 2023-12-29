@@ -6,9 +6,10 @@ interface StepProps {
     isActive?: boolean;
   }
   
+  // bg-gradient-to-tr from-yellow-600 to-yellow-500 text-white shadow-lg
   export function Step({ step, isActive = false }: StepProps) {
     return (
-      <div className="flex flex-row items-center justify-start gap-6">
+      <div className="flex flex-row items-center justify-start gap-6 ">
         <div
           className={`w-8 h-8 rounded-full flex items-center justify-center border-2 ${isActive ? 'border-sky-blue' : 'border-white'} ${isActive ? 'bg-sky-blue' : 'bg-none'}`}
         >

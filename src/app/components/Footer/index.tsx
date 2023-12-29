@@ -15,13 +15,13 @@ export function Footer({ handleGoBack, handleGoForwardStep }: FooterProps) {
     <footer className="p-4 bg-white flex justify-between items-center">
       <button
         onClick={handleGoBack}
-        className={`border-none text-sm text-grey font-medium ${currentStep === 1 ? 'invisible' : 'visible'} sm:text-base `}
+        className={`${currentStep === 1 ? 'invisible' : 'visible'} py-3 px-4 rounded text-sm text-white  font-medium sm:text-base bg-gradient-to-tr from-yellow-600 to-yellow-800 text-white shadow-lg`}
       >
         Go back
       </button>
       <button
         onClick={handleGoForwardStep}
-        className={`${isLastStep ? 'bg-purple' : 'bg-denim'} py-3 px-4 rounded text-sm text-white  font-medium sm:text-base bg-blue-500`}
+        className={`${isLastStep ? 'bg-purple' : 'bg-denim'} py-3 px-4 rounded text-sm text-white  font-medium sm:text-base bg-gradient-to-tr from-yellow-600 to-yellow-800 text-white shadow-lg`}
       >
         {isLastStep ? 'Confirm' : 'Next step'}
       </button>

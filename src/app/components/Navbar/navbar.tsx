@@ -70,7 +70,8 @@ export const Navbar = () => {
                             alt="Plan icon"
                             width={120}
                             height={120}
-                            style={logoStyles}
+                            // style={logoStyles}
+                            className="bg-gradient-to-tr from-yellow-600 to-yellow-700 text-white shadow-lg"
                         />
 						<p className="font-bold text-inherit"></p>
 					</NextLink>
@@ -122,7 +123,7 @@ export const Navbar = () => {
 						Login
 					</Button> */}
 
-                    <Button radius="full" className="bg-gradient-to-tr from-yellow-600 to-yellow-500 text-white shadow-lg"
+                    <Button radius="full" className="bg-gradient-to-tr from-yellow-600 to-yellow-800 text-white shadow-lg"
                     startContent={<LoginFilledIcon className="" />}
                     >
                         Login   &nbsp;&nbsp;

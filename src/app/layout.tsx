@@ -33,6 +33,7 @@ import { Providers } from "./providers";
 import { Navbar } from "@/components/Navbar/navbar";
 import { Link } from "@nextui-org/link";
 import clsx from "clsx";
+import { Divider } from "@nextui-org/react";
 
 export const metadata: Metadata = {
 	title: {
@@ -61,16 +62,17 @@ export default function RootLayout({
 			<head />
 			<body
 				className={clsx(
-					"min-h-screen bg-background font-sans antialiased",
+					"min-h-screen bg-background font-sans antialiased" ,
 					fontSans.variable
 				)}
 			>
 				<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
 					<div className="relative flex flex-col h-screen">
 						<Navbar />
-						<main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+						<main className="container mx-auto max-w-7xl flex-grow">
 							{children}
 						</main>
+            <Divider className="my-4" />
 						<footer className="w-full flex items-center justify-center py-3">
 							<Link
 								isExternal
@@ -78,9 +80,11 @@ export default function RootLayout({
 								href={siteConfig.links.github}
 								title="Nrdout"
 							>
+                
 								<span className="text-default-600">Powered by</span>
 								<p className="text-primary">Nrdout</p>
 							</Link>
+              
 						</footer>
 					</div>
 				</Providers>

@@ -9,15 +9,17 @@ import { FormStep } from './components/FormStep'
 
 export default function Home() {
   return (
-    <div
-      className="
+    // <div
+    //   className="
       
-       w-full bg-no-repeat bg-cover bg-[url('/images/bg/mobile.jpg')] 
-       sm:bg-[url('/images/bg/desktop.jpg')] 
-       "
-    >
+    //    w-full bg-no-repeat bg-cover bg-[url('/images/bg/mobile.jpg')] 
+    //    sm:bg-[url('/images/bg/desktop.jpg')] 
+    //    "
+    // >
 
-      <div className='container mx-auto'>
+    <div className=''>
+
+      <div className='container   mx-auto'>
 
       
     <FormStepProvider>
@@ -26,7 +28,7 @@ export default function Home() {
         <main className={`
           flex flex-col h-screen m-0
           sm:flex-row sm:m-4 sm:mr-0 sm:h-[calc(100vh-32px)]
-          pt-6 mt-6
+          pt-16 mt-6
           `
         }>
           <Sidebar />
