@@ -1,4 +1,6 @@
 import type { Config } from 'tailwindcss'
+import {nextui} from "@nextui-org/react";
+
 
 const config: Config = {
   content: [
@@ -6,6 +8,7 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     './node_modules/react-tailwindcss-datepicker/dist/index.esm.js',
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   // theme: {
   //   extend: {
@@ -33,12 +36,15 @@ const config: Config = {
     }
   },
   // plugins: [],
-  plugins: [
-    require('@headlessui/tailwindcss')
+  // plugins: [
+  //   require('@headlessui/tailwindcss')
 
-    // Or with a custom prefix:
-    // require('@headlessui/tailwindcss')({ prefix: 'ui' })
-  ],
+  //   // Or with a custom prefix:
+  //   // require('@headlessui/tailwindcss')({ prefix: 'ui' })
+  // ],
+
+  darkMode: "class",
+  plugins: [nextui()]
 
 }
 export default config
