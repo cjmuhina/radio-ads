@@ -11,7 +11,7 @@ import { TypeOfPlan, PlanWithPrices } from "../../../types/plan";
 import { Switch } from "./Switch";
 
 import plans from '../../../../data/plans.json'
-import { FromToCard } from "./FromToCard";
+import { FromToCard } from "../AddOns/FromToCard";
 import UnconventionalTabs from "./UnconventionalTabs";
 
 import Tab0Image3 from '../../../../../public/images/icons/icon-advanced.svg'

@@ -28,6 +28,8 @@ type FormContextData = {
   setIsCoupon: React.Dispatch<React.SetStateAction<boolean>>;
   selectedPlan: Plan;
   setSelectedPlan: React.Dispatch<React.SetStateAction<Plan>>;
+  selectedRadioDateRange: RadioDateRange;
+  setSelectedRadioDateRange: React.Dispatch<React.SetStateAction<RadioDateRange>>;
   addOns: { title: string, description: string, price: number }[];
   setAddOns: React.Dispatch<React.SetStateAction<{ title: string; description: string; price: number; }[]>>;
   clearForm: () => void;
@@ -49,6 +51,8 @@ export const FormContext = createContext({
   setIsCoupon: () => {},
   selectedPlan: null as any,
   setSelectedPlan: () => {},
+  selectedRadioDateRange: null as any,
+  setSelectedRadioDateRange: () => {},
   addOns: [],
   setAddOns: () => {},
   clearForm: () => {}
@@ -94,6 +98,11 @@ export type Plan = {
   price: number
 }
 
+export type RadioDateRange = {
+  startDate: string;
+  endDate: string
+}
+
 interface FormProviderProps {
   children: React.ReactNode;
 }
@@ -108,6 +117,7 @@ export const FormProvider = ({ children }: FormProviderProps) => {
   // Plan
   const [isCoupon, setIsCoupon] = useState<boolean>(false);
   const [selectedPlan, setSelectedPlan] = useState<Plan>(null as any);
+  const [selectedRadioDateRange, setSelectedRadioDateRange] = useState<RadioDateRange>(null as any);
 
   // Description Ads
   const [adsDescField, dispatchAdsDescField] = useReducer(handleFormState, initialState)
@@ -131,6 +141,7 @@ export const FormProvider = ({ children }: FormProviderProps) => {
     dispatchAdsDescField({ type: ACTIONS.SET_VALUE, value: '' })
     setIsCoupon(false)
     setSelectedPlan(null as any)
+    setSelectedRadioDateRange(null as any)
     setAddOns([])
   }
 
@@ -154,6 +165,11 @@ export const FormProvider = ({ children }: FormProviderProps) => {
       setIsCoupon(planFromLocalStorage.isCoupon)
     }
 
+    const radioDateRangeFromLocalStorage = getValueFromLocalStorage('radio-date-range')
+    if (radioDateRangeFromLocalStorage) {
+      setSelectedRadioDateRange(radioDateRangeFromLocalStorage)
+    }
+
     const addOnsFromLocalStorage = getValueFromLocalStorage('add-ons')
     if (addOnsFromLocalStorage) {
       setAddOns(addOnsFromLocalStorage)
@@ -175,6 +191,8 @@ export const FormProvider = ({ children }: FormProviderProps) => {
     setIsCoupon,
     selectedPlan,
     setSelectedPlan,
+    selectedRadioDateRange,
+    setSelectedRadioDateRange,
     addOns,
     setAddOns,
     clearForm
