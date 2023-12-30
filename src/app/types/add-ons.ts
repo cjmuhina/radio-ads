@@ -5,6 +5,7 @@ export type Addon = {
   }
   
   export type AddonWithPrices = {
+    id: string;
     title: string;
     description: string;
     price: {

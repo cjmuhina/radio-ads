@@ -30,8 +30,8 @@ type FormContextData = {
   setSelectedPlan: React.Dispatch<React.SetStateAction<Plan>>;
   selectedRadioDateRange: RadioDateRange;
   setSelectedRadioDateRange: React.Dispatch<React.SetStateAction<RadioDateRange>>;
-  addOns: { title: string, description: string, price: number }[];
-  setAddOns: React.Dispatch<React.SetStateAction<{ title: string; description: string; price: number; }[]>>;
+  addOns: { id: string, title: string, description: string, price: number }[];
+  setAddOns: React.Dispatch<React.SetStateAction<{  id: string, title: string; description: string; price: number; }[]>>;
   clearForm: () => void;
 }
 
@@ -124,7 +124,7 @@ export const FormProvider = ({ children }: FormProviderProps) => {
 
 
   // Add Ons
-  const [addOns, setAddOns] = useState<{ title: string, description: string, price: number }[]>([]);
+  const [addOns, setAddOns] = useState<{ id: string, title: string, description: string, price: number }[]>([]);
 
   const { getValueFromLocalStorage, removeValueFromLocalStorage } = useLocalStorage()
 
