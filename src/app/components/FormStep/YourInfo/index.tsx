@@ -36,8 +36,8 @@ export function YourInfo() {
     }
 
     if (!emailField.value) {
-      dispatchEmailField({ type: ACTIONS.SET_ERROR, errorMessage: 'Email is required' })
-      formHasError = true
+      // dispatchEmailField({ type: ACTIONS.SET_ERROR, errorMessage: 'Email is required' })
+      // formHasError = true
     } else {
       const emailRegex = /\S+@\S+\.\S+/
       if (!emailRegex.test(emailField.value)) {
@@ -82,12 +82,23 @@ export function YourInfo() {
       <Form.Card>
         <Form.Header
           title="Personal & Company Info"
-          description="Please provide your name, Business Name, and Business type, email address, and phone number."
+          description="Please provide your Company Name, your Full name, phone number, and email address."
         />
 
         <div className="mt-5 flex flex-col gap-4">
+
+        <TextInput
+            label="Company Name"
+            placeholder="e.g. ComapnyFull Name"
+            value={companyNameField.value}
+            onChange={(value: string) => dispatchCompanyNameField({ type: ACTIONS.SET_VALUE, value })}
+            errorMessage={companyNameField.errorMessage}
+            clearError={() => dispatchCompanyNameField({ type: ACTIONS.CLEAR_ERROR })}
+            hasError={companyNameField.hasError}
+          />
+
           <TextInput
-            label="Name"
+            label="Your Full Name"
             placeholder="e.g. First Middle Last"
             value={nameField.value}
             onChange={(value: string) => dispatchNameField({ type: ACTIONS.SET_VALUE, value })}
@@ -95,15 +106,7 @@ export function YourInfo() {
             clearError={() => dispatchNameField({ type: ACTIONS.CLEAR_ERROR })}
             hasError={nameField.hasError}
           />
-          <TextInput
-            label="Email Address"
-            placeholder="e.g. example@domain.com"
-            value={emailField.value}
-            onChange={(value: string) => dispatchEmailField({ type: ACTIONS.SET_VALUE, value })}
-            errorMessage={emailField.errorMessage}
-            clearError={() => dispatchEmailField({ type: ACTIONS.CLEAR_ERROR })}
-            hasError={emailField.hasError}
-          />
+          
           <TextInput
             label="Phone Number"
             placeholder="e.g. +255 71XX XXX XXX"
@@ -113,16 +116,21 @@ export function YourInfo() {
             clearError={() => dispatchPhoneNumberField({ type: ACTIONS.CLEAR_ERROR })}
             hasError={phoneNumberField.hasError}
           />
-          
+
           <TextInput
-            label="Company Name"
-            placeholder="e.g. ComapnyFull Name"
-            value={companyNameField.value}
-            onChange={(value: string) => dispatchCompanyNameField({ type: ACTIONS.SET_VALUE, value })}
-            errorMessage={companyNameField.errorMessage}
-            clearError={() => dispatchCompanyNameField({ type: ACTIONS.CLEAR_ERROR })}
-            hasError={companyNameField.hasError}
-          />
+              label="Email Address"
+              placeholder="e.g. example@domain.com"
+              value={emailField.value}
+              onChange={(value: string) => dispatchEmailField({ type: ACTIONS.SET_VALUE, value })}
+              errorMessage={emailField.errorMessage}
+              clearError={() => dispatchEmailField({ type: ACTIONS.CLEAR_ERROR })}
+              hasError={emailField.hasError}
+              isRequiredValue={false}
+            />
+          
+          
+
+
         </div>
       </Form.Card>
       <Footer
