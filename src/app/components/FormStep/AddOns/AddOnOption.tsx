@@ -15,13 +15,13 @@ interface AddOnOptionProps {
   // }
   addOn: {
     id: string;
-    name: number;
-    timeFrom: number;
-    timeTo: number;
-    price: string
-  }
-  isSelected: boolean
-  handleSelectAddon: (addOn: any) => void
+    name: string;
+    timeFrom: string;
+    timeTo: string;
+    price: number
+  },
+  isSelected: boolean,
+  handleSelectAddon: (addOn: any) => void,
   handleUnselectedAddon: (addOn: any) => void
 }
 

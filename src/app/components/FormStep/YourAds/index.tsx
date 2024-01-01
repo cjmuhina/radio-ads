@@ -56,6 +56,7 @@ export function YourAds() {
           
           
           <TextInput
+          isTextarea={true}
             label="Description"
             placeholder="your Description here...."
             value={adsDescField.value}

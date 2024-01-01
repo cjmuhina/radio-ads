@@ -7,7 +7,7 @@ interface TotalPriceProps {
 
 export function TotalPrice({ finalPrice, isCoupon }: TotalPriceProps) {
 
-  const period = isCoupon ? 'per year' : 'per month'
+  const period = isCoupon ? 'TZS' : 'TZS'
 
   return (
     <div className="mt-6 flex items-center justify-between px-4 sm:px-6">

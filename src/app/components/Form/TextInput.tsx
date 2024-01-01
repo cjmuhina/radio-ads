@@ -1,4 +1,4 @@
-import { Input } from "@nextui-org/react";
+import { Input, Textarea } from "@nextui-org/react";
 
 interface TextInputProps {
     label: string;
@@ -9,7 +9,9 @@ interface TextInputProps {
     hasError: boolean
     clearError: () => void
     nameOfClasses?: string,
-    isRequiredValue?: boolean
+    isTextarea?: boolean,
+    isRequiredValue?: boolean,
+
   }
   
   export function TextInput(
@@ -21,6 +23,7 @@ interface TextInputProps {
       hasError, 
       clearError , 
       nameOfClasses = '',
+      isTextarea = false,
       isRequiredValue = true}: TextInputProps) {
   
     function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -49,6 +52,8 @@ interface TextInputProps {
         /> */}
 
         <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+
+        {!isTextarea  &&
           <Input
             isRequired={isRequiredValue}
             type="text"
@@ -62,6 +67,31 @@ interface TextInputProps {
             isInvalid={hasError}
             errorMessage={errorMessage}
           />
+        }
+
+
+      {isTextarea  &&
+          <Textarea
+            // variant="bordered"
+            placeholder="Enter your description"
+            disableAnimation
+            disableAutosize
+            classNames={{
+              // base: "max-w-lg",
+              input: "resize-y min-h-[100px]",
+            }}
+            isRequired={isRequiredValue}
+            label={label}
+            defaultValue={placeholder}
+            // className="max-w-xs"
+            onChange={handleInputChange}
+            onFocus={() => clearError()}
+            value={value}
+            size="md"
+            isInvalid={hasError}
+            errorMessage={errorMessage}
+          />
+      }
          </div>
          
         

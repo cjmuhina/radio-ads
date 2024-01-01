@@ -16,16 +16,16 @@
 
   export type Addon = {
     id: string;
-    name: number;
-    timeFrom: number;
-    timeTo: number;
-    price: string
+    name: string;
+    timeFrom: string;
+    timeTo: string;
+    price: number
   }
   export type AddonWithPrices = {
     id: string;
-    name: number;
-    timeFrom: number;
-    timeTo: number;
-    price: string
+    name: string;
+    timeFrom: string;
+    timeTo: string;
+    price: number
   }
  

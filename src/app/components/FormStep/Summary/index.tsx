@@ -93,7 +93,7 @@ export function Summary() {
           {addOns.map((addOn, index) => (
             <AddOnItem
               key={index}
-              title={addOn.title}
+              title={addOn.name}
               price={addOn.price}
               isCoupon={isCoupon}
             />
