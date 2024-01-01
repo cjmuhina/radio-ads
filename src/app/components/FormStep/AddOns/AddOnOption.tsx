@@ -5,13 +5,20 @@ import { useForm } from "../../../hooks/use-form";
 import { priceFormatter } from "../../../utils/price-formatter";
 
 interface AddOnOptionProps {
+  // addOn: {
+  //   title: string;
+  //   description: string;
+  //   price: {
+  //     noCoupon: number;
+  //     coupon: number;
+  //   }
+  // }
   addOn: {
-    title: string;
-    description: string;
-    price: {
-      noCoupon: number;
-      coupon: number;
-    }
+    id: string;
+    name: number;
+    timeFrom: number;
+    timeTo: number;
+    price: string
   }
   isSelected: boolean
   handleSelectAddon: (addOn: any) => void
@@ -26,8 +33,11 @@ export function AddOnOption({ addOn, isSelected, handleSelectAddon, handleUnsele
   function handleClick() {
     if (isSelected) {
       handleUnselectedAddon(addOn)
+      console.log("AddOnOption isUnSelected")
     } else {
       handleSelectAddon(addOn)
+      console.log("AddOnOption isSelected")
+
     }
   }
 
@@ -58,11 +68,11 @@ export function AddOnOption({ addOn, isSelected, handleSelectAddon, handleUnsele
         </Checkbox.Indicator>
       </Checkbox.Root>
       <div className="flex flex-col gap-1 items-start">
-        <strong className="text-sm text-denim font-medium sm:text-base">{addOn.title}</strong>
-        <span className="text-xs text-grey font-normal sm:text-sm">{addOn.description}</span>
+        <strong className="text-sm text-denim font-medium sm:text-base">{addOn.name}</strong>
+        <span className="text-xs text-grey font-normal sm:text-sm">{addOn.name}</span>
       </div>
       <span className="text-xs text-purple font-normal leading-5 ml-auto sm:text-sm ">
-        {"" + priceFormatter(addOn.price[planType], isCoupon)}
+        {"" + addOn.price} ( selected {isSelected})
       </span>
     </button>
   )

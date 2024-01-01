@@ -9,10 +9,10 @@ import { Footer } from "../../Footer";
 import Form from "../../Form";
 import { AddonWithPrices, Addon } from "../../../types/add-ons";
 
-import ADD_ONS from '../../../../data/add-ons.json'
+// import ADD_ONS from '../../../../data/add-ons.json'
 import { FromToCard } from "./FromToCard";
 import Datepicker from "react-tailwindcss-datepicker";
-import {Tabs, Tab, Card, CardHeader, CardBody, CardFooter, Divider, Link, Image, ScrollShadow} from "@nextui-org/react";
+import {Tabs, Tab, Card, CardHeader, CardBody, CardFooter, Divider, Link, Image, ScrollShadow, User} from "@nextui-org/react";
 
 import TIMETABLE from '../../../../data/timetable.json'
 
@@ -192,19 +192,57 @@ export function AddOns() {
   const { handleNextStep, handlePreviousStep } = useFormStep()
 
   const { saveValueToLocalStorage } = useLocalStorage()
-
+  function findIfSelectedById(source: any, id: any) : boolean{
+    // console.log("findIfSelectedById id: ", id)
+    // console.log("findIfSelectedById source: ", source)
+    for (var i = 0; i < source.length; i++) {
+      if (source[i].id === id) {
+        // return source[i];
+        return true
+      }
+    }
+   // throw "Couldn't find object with id: " + id;
+   return false
+  }
   function handleSelectAddon(addOn: AddonWithPrices) {
+    console.log("handleSelectAddon selected: ", addOn)
+    console.log("nrdout selected: ", findIfSelectedById(addOns, addOn.id))
+    
+
+    console.log("status selected: ", addOns.find(({ id }) => {
+      if(addOn.id === id){
+        return "Yesssssss"
+      }else{
+        return "Noooooooooo"
+      }
+    }))
+
+    // const formattedAddOn = {
+    //   id: addOn.id,
+    //   title: addOn.title,
+    //   description: addOn.description,
+    //   price: addOn.price[isCoupon ? 'coupon' : 'noCoupon']
+    // }
     const formattedAddOn = {
       id: addOn.id,
-      title: addOn.title,
-      description: addOn.description,
-      price: addOn.price[isCoupon ? 'coupon' : 'noCoupon']
+      name: addOn.name,
+      timeFrom: addOn.timeFrom,
+      timeTo: addOn.timeTo,
+      price: addOn.price
+      // price: addOn.price[isCoupon ? 'coupon' : 'noCoupon']
     }
     setAddOns((currentAddons) => [...currentAddons, formattedAddOn])
+    console.log("addOns ==> ", addOns)
+
   }
 
   function handleUnselectedAddon(addOn: Addon) {
-    setAddOns((currentAddons) => currentAddons.filter(currentAddon => currentAddon.title !== addOn.title))
+    console.log("handleUnselectedAddon unselected: ", addOn)
+    console.log("nrdout unselected: ", findIfSelectedById(addOns, addOn.id))
+
+    
+
+    setAddOns((currentAddons) => currentAddons.filter(currentAddon => currentAddon.id !== addOn.id))
   }
 
   function handleGoForwardStep() {
@@ -306,15 +344,52 @@ export function AddOns() {
  <ScrollShadow orientation="horizontal" className="max-w-[500px] max-h-[500px]">
       {/* <Content className="w-[800px]" /> */}
    
-<div className="flex flex-wrap gap-4">
+<div className="flex flex-wrap ">
         <Tabs aria-label="Timetables" items={TIMETABLE} fullWidth={false} color="warning" variant='bordered'>
         {(item) => (
           <Tab key={item.id} title={item.label}>
-            <Card>
-              <CardBody>
-                {item.id}
-              </CardBody>
-            </Card>  
+            
+                <i className="text-black">Timetable for date: {item.label}</i>
+                {item.radios.map((radio, radioIndex) => (
+                    <>
+
+                    <Card className="mb-3">
+                          <CardBody>
+
+                                <User   
+                                  
+                                  name={radio.name}
+                                  description={item.label}
+                                  avatarProps={{
+                                    src: "https://img.freepik.com/premium-vector/radio-logo_9850-254.jpg"
+                                  }}
+                                />
+                          </CardBody>
+                  </Card> 
+                  <Divider>
+                  </Divider>
+
+                          {radio.radioAds.map((radioAd, radioAdIndex) => (
+                            <>
+                            <AddOnOption
+                              key={radioAd.id}
+                              addOn={radioAd}
+                              isSelected={findIfSelectedById(addOns, radioAd.id)}
+                              // isSelected={!!addOns.find(({ id }) => radioAd.id === id)}
+                              handleSelectAddon={handleSelectAddon}
+                              handleUnselectedAddon={handleUnselectedAddon}
+                            />
+                            </>
+                          ))} 
+                    
+
+                     
+                    
+                   
+                    </>
+                  ))} 
+
+              
           </Tab>
         )}
       </Tabs>
