@@ -10,7 +10,7 @@ interface TextInputProps {
     hasError: boolean
     clearError: () => void
     nameOfClasses?: string,
-    isTextarea?: boolean,
+    isTextareaInput?: boolean,
     isRequiredValue?: boolean,
 
   }
@@ -24,7 +24,7 @@ interface TextInputProps {
       hasError, 
       clearError , 
       nameOfClasses = '',
-      isTextarea = false,
+      isTextareaInput = false,
       isRequiredValue = true}: TextInputProps) {
   
     function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -54,7 +54,7 @@ interface TextInputProps {
 
         <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
 
-        {!isTextarea  &&
+        {!isTextareaInput  &&
           <Input
             isRequired={isRequiredValue}
             type="text"
@@ -71,7 +71,7 @@ interface TextInputProps {
         }
 
 
-      {isTextarea  &&
+      {isTextareaInput  &&
           <Textarea
             // variant="bordered"
             placeholder="Enter your description"
