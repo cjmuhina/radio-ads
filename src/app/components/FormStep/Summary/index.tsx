@@ -95,6 +95,8 @@ export function Summary() {
               key={index}
               title={addOn.name}
               price={addOn.price}
+              timeFrom={addOn.timeFrom}
+              timeTo={addOn.timeTo}
               isCoupon={isCoupon}
             />
           ))}

@@ -99,7 +99,7 @@ function generateDummyData(selectedRadioDateRange: any) {
         timeTo.setHours(timeFrom.getHours() + iRadioAd + 1);
         let newRadioAd = {
           id: newRadio.id + '-' + iRadioAd,
-          name: iRadioAd + "", // change later
+          name: newRadio.name + " ("+dateId +")", // change later
           timeFrom: timeFrom + "", // change later
           timeTo: timeTo + "", // change later
           price: 1000000,
