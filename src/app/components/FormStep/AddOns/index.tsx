@@ -306,7 +306,7 @@ export function AddOns() {
           description="Pick date range and radio timetable"
         />
 
-        <div className="mt-5 flex flex-col gap-3">
+        <div className="mt-0 flex flex-col w-full">
 
           {/* <FromToCard/> */}
 
@@ -336,15 +336,15 @@ export function AddOns() {
               <ScrollShadow orientation="horizontal" className="max-w-[500px] max-h-[500px]">
 
                 <div className="flex flex-wrap ">
-                  <Tabs aria-label="Timetables" items={TIMETABLE} fullWidth={false} color="warning" variant='bordered'>
+                  <Tabs aria-label="Timetables" items={TIMETABLE} fullWidth={false} color="warning" variant='bordered' >
                     {(item) => (
-                      <Tab key={item.id} title={item.label}>
+                      <Tab key={item.id} title={item.label} className="sticky">
 
-                        <i className="text-black">Timetable for date: {item.label}</i>
+                        <i className="text-black">Timetable for a date: {item.label}</i>
                         {item.radios.map((radio, radioIndex) => (
                           <>
                             <div key={radio.id}>
-                            <Card className="max-w-md">
+                            <Card className="max-w-md my-5">
                               <CardHeader className="justify-between">
                                 <div className="flex gap-5">
                                   <Avatar isBordered radius="full" size="md" src={radio.logo} />
@@ -363,14 +363,14 @@ export function AddOns() {
                                 Schedule
                                 </Button>
                               </CardHeader>
-                              <CardBody className="px-3 py-0 text-small text-default-400">
-                              <div className="max-h-[340px]">
+                              <CardBody className="px-3 py-0 text-small text-default-400 ">
+                              <div className="">
                                   {/* <div className="space-y-1">
                                     <h4 className="text-medium font-medium">NextUI Components</h4>
                                     <p className="text-small text-default-400">Beautiful, fast and modern React UI library.</p>
                                   </div> */}
-                                  <Divider className="my-4" />
-                                  <div className="flex h-5 items-center space-x-4 text-small">
+                                  <Divider className="mb-2" />
+                                  <div className="flex items-center space-x-4 text-small mb-2">
                                       {radio.radioAds.map((radioAd, radioAdIndex) => (
                                         <>
                                           <AddOnOption
@@ -395,8 +395,8 @@ export function AddOns() {
                                   <p className=" text-default-400 text-small">Vipindi</p>
                                 </div>
                                 <div className="flex gap-1">
-                                  <p className="font-semibold text-default-400 text-small">{item.label}</p>
-                                  <p className="text-default-400 text-small">Date</p>
+                                  <p className="font-semibold text-default-400 text-small">On</p>
+                                  <p className="text-default-400 text-small">{item.label}</p>
                                 </div>
                               </CardFooter>
                             </Card>

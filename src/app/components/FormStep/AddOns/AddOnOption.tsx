@@ -46,12 +46,20 @@ export function AddOnOption({ addOn, isSelected, handleSelectAddon, handleUnsele
       onClick={handleClick}
       className={`
         flex items-center gap-4 px-4 py-3 bg-white rounded-lg border-border-grey border-[1px] 
-        ${isSelected ? 'border-purple bg-very-light-grey' : ''}
-        hover:border-purple duration-200 hover:bg-very-light-grey
-        sm:gap-6 sm:px-6
+        ${isSelected ? 'border-black bg-yellow-700' : ''}
+        hover:border-black duration-200 hover:bg-yellow-700 hover:text-black
+        sm:gap-6 sm:px-6 w-[200px]
       `}
     >
-      <Checkbox.Root
+      
+      {/* <div className="flex flex-col gap-1 items-start">
+        <i className="">{new Date(new Date(addOn.timeFrom).getTime() + 4*60*60*1000).toLocaleTimeString()} - {new Date(new Date(addOn.timeTo).getTime() + 4*60*60*1000).toLocaleTimeString()}</i>
+        <span className="text-xs text-purple font-normal leading-5 ml-auto sm:text-sm ">
+        
+      </span>
+      </div> */}
+
+<Checkbox.Root
         className={
           `
             rounded h-5 w-5 flex items-center justify-center duration-200 hover:bg-purple
@@ -67,13 +75,15 @@ export function AddOnOption({ addOn, isSelected, handleSelectAddon, handleUnsele
           <CheckIcon width={20} height={20} />
         </Checkbox.Indicator>
       </Checkbox.Root>
-      <div className="flex flex-col gap-1 items-start">
-        <strong className="text-sm text-denim font-medium sm:text-base">{addOn.name}</strong>
-        <span className="text-xs text-grey font-normal sm:text-sm">{addOn.name}</span>
+       <div className="flex flex-col gap-1 items-start justify-center ">
+      <i className="">{new Date(new Date(addOn.timeFrom).getTime() + 4*60*60*1000).toLocaleTimeString()} - {new Date(new Date(addOn.timeTo).getTime() + 4*60*60*1000).toLocaleTimeString()}</i>
+
+      {"TZS " + addOn.price} 
       </div>
-      <span className="text-xs text-purple font-normal leading-5 ml-auto sm:text-sm ">
-        {"" + addOn.price} ( selected {isSelected})
-      </span>
+      
+     
+
+      
     </button>
   )
 
