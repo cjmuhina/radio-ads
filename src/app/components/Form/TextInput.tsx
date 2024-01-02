@@ -1,4 +1,5 @@
-import { Input, Textarea } from "@nextui-org/react";
+import { Input } from "@nextui-org/react";
+import {Textarea} from "@nextui-org/react";
 
 interface TextInputProps {
     label: string;
